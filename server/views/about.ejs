@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="short icon" href="images/Short cut.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body style="background-color: #A4D0A4;">
+
+
+    <!--Navigation Bar-->
+
+    <nav>
+        <div class="logo">
+            <a href="index.ejs">
+                <img src="images/Logo-removebg.png">
+            </a>
+        </div>
+
+        <ul>
+            <li><a href="index.ejs">Home</a></li>
+            <li><a href="about.ejs" class="action">About Us</a></li>
+            <li>
+                <a>Components <i class="fa-sharp fa-solid fa-caret-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="pcparts.ejs">PC Parts</a></li>
+                    <li><a href="laptop-parts.ejs">Laptop Parts</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.ejs">Gallery</a></li>
+        </ul>
+
+        <div class="box">
+            <input type="checkbox" id="check">
+            <div class="search-box">
+                <input type="text" placeholder="Type here...">
+                <label for="check" class="icon">
+                    <i class="fas fa-search"></i>
+                </label>
+            </div>
+        </div>
+
+
+    </nav>
+
+
+
+
+    <!--Banner-->
+
+    <div class="banner_bg">
+
+        <h1><span>About</span>Us</h1>
+
+    </div>
+
+    <!---- About Us --->
+
+    <div class="about anim">
+        <div class="about_main">
+
+            <div class="image">
+                <img src="images/pork sinigang.png">
+            </div>
+
+            <div class="about_text">
+                <h1><span>Why</span>Us?</h1>
+                <p>
+                    The Filipino foods we eat today are a direct fusion of indigenous ingredients, flavours, and outside
+                    influence. With such a wide geography and rich indigenous history, each area of the Philippines
+                    reflects these influences in local variations of popular dishes.<br>
+                    <br>
+                    Our website is all about filipino foods inspiring people to love their own traditional foods. We
+                    showing different kinds of dishes here in the Phillipines. And attracting more people or other
+                    countries to have a taste of Filipino Dishes. And we want to make it easier for people who crave or
+                    want to taste different Filipino Dishes by ordering through our website with ease.
+                    <br><br>
+                    Our website mission is to be the largest most helpful Filipino Food website here in the Philippines,
+                    and hopefully, the world
+                </p>
+            </div>
+
+        </div>
+
+        <a href="order.ejs" class="about_btn"><i class="fa-solid fa-burger"></i>Order Now</a>
+
+    </div>
+
+
+
+
+    <!--Footer-->
+
+    <footer>
+
+        <div class="footer_main">
+
+            <div class="footer_tag">
+                <h2>Location</h2>
+                <p>Cebu</p>
+                <p>Iloilo</p>
+                <p>Manila</p>
+                <p>Aklan</p>
+                <p>Negros</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Quick Link</h2>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="menu.html">Menu</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+94 12 3456 789</p>
+                <p>+94 25 5568 456</p>
+                <p>johndeo123@gmail.com</p>
+                <p>foodshop123@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Our Services</h2>
+                <p>Fast Delivery</p>
+                <p>Easy Payment</p>
+                <p>24 x 7 Service</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Follows</h2>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+
+        </div>
+
+        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> <%= about%></span></p>
+
+    </footer>
+
+</body>
+
+</html>
