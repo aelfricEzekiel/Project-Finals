@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-ac99c69f296d17ae2bc4797b03807df3e31d8c25ed670b34a1d1edc3942cd0da' 'sha256-df683ed96a82d65e34dda4835a6bf59bfb82d7ce96abdc3eed5f12c3f50649f5'">
     <title>
         <%= title%>
     </title>
     <link rel="stylesheet" href="order.css">
     <link rel="short icon" href="images/Short cut.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
 </head>
 
@@ -59,7 +59,7 @@
                 <img src="images/oder.png">
             </div>
 
-            <form action="/orders">
+            <form action="">
 
                 <div class="input">
                     <p>Name</p>
@@ -91,14 +91,14 @@
                     <input placeholder="Enter Address Address" name="address">
                 </div>
 
-                <a class="order_btn" onclick="openPopup()">Order Now</a>
+                <a class="order_btn" onclick="openPopup()" id="order-btn">Order Now</a>
 
                 <div class="popup" id="popup">
                     <img src="images/tick.png">
                     <h2>Thank You!</h2>
                     <p>Your order has been successfully ordered</p>
                     <a href="menu.ejs">
-                        <button type="button" onclick="closePopup()">OK</button>
+                        <button type="button" onclick="closePopup()" id="confirm-btn">OK</button>
                     </a>
                 </div>
 

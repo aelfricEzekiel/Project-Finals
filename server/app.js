@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     })
 });
 
-app.post('/orders', (req, res) => {
+app.post('/orders.ejs', (req, res) => {
     const id = 0;
     const name = req.body.customer_name;
     const email = req.body.customer_email;
@@ -20,11 +20,13 @@ app.post('/orders', (req, res) => {
     const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address})`;
 
     conn.query(insertQuery, (err, result) => {
-        if(err) throw err;
+        if(err) {
+            throw err;  
+        } 
 
-        res.sendStatus(200).send(`
+        res.send(`
             <script>
-                alert("Order Succesful");   
+                alert("Order Succesful ${result}");   
                 window.location.href="/";
             </script>
         `)
