@@ -1,14 +1,19 @@
 const app = require('./express/express');
 const conn = require('./mysql/conn');
+const index = require('./routes/index.route');
+const login = require('./routes/login.route');
+
+// route for landing page
+app.use('/', index);
 
 // Landing page
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.render('index', {
         title: "WeIT: Online IT Essentials Shop"
     })
-});
+});*/
 
-app.post('/ordersHomePage', (req, res) => {
+/*app.post('/ordersHomePage', (req, res) => {
     const id = 0;
     const name = req.body.name;
     const email = req.body.email;
@@ -24,7 +29,11 @@ app.post('/ordersHomePage', (req, res) => {
         console.log("Orders Succesful");
     })
     res.redirect('/');
-})
+})*/
+
+// route for login
+app.use('/logine', login);
+
 // redirects to the about page
 app.get('/about.ejs', (req, res) => {
     res.render('about', {
@@ -53,7 +62,7 @@ app.post('/orderLaptops', (req, res) => {
     conn.query(insertQuery, (err, result) => {
         if(err) throw err;
 
-        console.log("Orders Inserted!");
+        console.log("Orders Succssful!");
     })
 })
 app.get('/pcparts.ejs', (req, res) => {

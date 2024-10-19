@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="login-signup.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="logo.png" alt="">
+        </div>
+        <br>
+        <br>
+        <div class="text-center mt-4 name">
+            Sign Up
+        </div>
+        <br>
+        <form class="p-3 mt-3">
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="userName" id="userName" placeholder="Username" required>
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password" required>
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <button class="btn mt-3">Sign Up</button>
+        </form>
+        <br>
+        <div class="text-center fs-6">
+            <center>
+                <a href="login.ejs">Log In</a> |
+                <a href="signup.ejs">Sign up</a> 
+            </center>
+        </div>
+    </div>
+    
+</body>
+</html>
