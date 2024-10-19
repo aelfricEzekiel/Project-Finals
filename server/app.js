@@ -8,29 +8,22 @@ app.get('/', (req, res) => {
     })
 });
 
-app.post('/orders.ejs', (req, res) => {
+app.post('/ordersHomePage', (req, res) => {
     const id = 0;
-    const name = req.body.customer_name;
-    const email = req.body.customer_email;
-    const contactNo = req.body.customer_contactNo;
-    const count = req.body.customer_count;
-    const orders = req.body.customer_orders;
-    const address = req.body.customer_address;
+    const name = req.body.name;
+    const email = req.body.email;
+    const contactNo = req.body.contactNo;
+    const count = req.body.count;
+    const orders = req.body.orders;
+    const address = req.body.address;
 
-    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address})`;
+    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address}")`;
 
     conn.query(insertQuery, (err, result) => {
-        if(err) {
-            throw err;  
-        } 
-
-        res.send(`
-            <script>
-                alert("Order Succesful ${result}");   
-                window.location.href="/";
-            </script>
-        `)
+        if(err) throw err;
+        console.log("Orders Succesful");
     })
+    res.redirect('/');
 })
 // redirects to the about page
 app.get('/about.ejs', (req, res) => {
@@ -38,8 +31,6 @@ app.get('/about.ejs', (req, res) => {
         title: "About",
         about: "WeIT: Online IT Essentials Shop"
     })
-
-    res.redirect('/');
 });
 
 app.get('/order.ejs', (req, res) => {
@@ -48,6 +39,23 @@ app.get('/order.ejs', (req, res) => {
     })
 });
 
+app.post('/orderLaptops', (req, res) => {
+    const id = 0;
+    const name = req.body.name;
+    const email = req.body.email;
+    const contactNo = req.body.contactNo;
+    const count = req.body.count;
+    const orders = req.body.orders;
+    const address = req.body.address;
+
+    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address}")`;
+
+    conn.query(insertQuery, (err, result) => {
+        if(err) throw err;
+
+        console.log("Orders Inserted!");
+    })
+})
 app.get('/pcparts.ejs', (req, res) => {
     res.render('pcparts', {
         title: "PC Components"
@@ -56,7 +64,8 @@ app.get('/pcparts.ejs', (req, res) => {
 
 app.get('/laptop-parts.ejs', (req, res) => {
     res.render('laptop-parts', {
-        title: "Laptop Parts"
+        title: "Laptop Parts",
+        footer: "WeIT: Online IT Essentials Shops"
     })
 });
 

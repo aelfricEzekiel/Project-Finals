@@ -5,7 +5,7 @@
     <meta charset="UTF=8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-ac99c69f296d17ae2bc4797b03807df3e31d8c25ed670b34a1d1edc3942cd0da' 'sha256-df683ed96a82d65e34dda4835a6bf59bfb82d7ce96abdc3eed5f12c3f50649f5'">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-998cd8676dafbcb2398a1b5e76a59f4df8369fd81a8e9683eb9d574c9f7f4943' 'sha256-83c52a394463edf586dc264b43faae4c43a0bde79daccf96c7d84a6077b2aabd' 'sha256-f7ef4e8109edbfc8189c3a536c418e46b7e65ae00a8d413c158dddd7b47e6ca8'">
     <title>
         <%= title%>
     </title>
@@ -41,7 +41,7 @@
                 </li>
                 <li><a href="gallery.ejs">Gallery</a></li>
             </ul>
-
+            
             <div class="box">
                 <input type="checkbox" id="check">
                 <div class="search-box">
@@ -557,7 +557,7 @@
                 <img src="images/oder.png">
             </div>
 
-            <form action="/orders" method="post" >
+            <form action="/ordersHomePage" method="post">
 
                 <div class="input">
                     <p>Name</p>
@@ -571,17 +571,17 @@
 
                 <div class="input">
                     <p>Contact Number</p>
-                    <input type="text" placeholder="Enter contact number" name="contacNo">
+                    <input type="text" placeholder="Enter contact number" name="contactNo">
                 </div>
 
                 <div class="input">
                     <p>How Much</p>
-                    <input type="number" placeholder="How many your orders?" name="howMuch">
+                    <input type="text" placeholder="How many your orders?" name="count">
                 </div>
 
                 <div class="input">
                     <p>Order</p>
-                    <input type="text" placeholder="Enter PC Components" name="pcOrder">
+                    <input type="text" placeholder="Enter PC Components" name="orders">
                 </div>
 
                 <div class="input">
@@ -652,6 +652,7 @@
 
     </footer>
 
+    <script nonce="abc123"></script>
 </body>
 
 </html>
