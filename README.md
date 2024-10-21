@@ -1,3 +1,1 @@
-# Project-Finals
-
-# This is the repository to store all changes from our system
+# WeIT: Online IT Essentials Shop
