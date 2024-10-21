@@ -19,7 +19,7 @@ section nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: #A4D0A4;
+    background: #ADD8E6;
     position: fixed;
     right: 0;
     left: 0;
@@ -275,6 +275,7 @@ section .main .main_text .btn:hover::before{
     width: 600px;
     position: relative;
     top: 60px;
+    bottom: 50px;
 }
 
 .about .about_main .about_text h1 span{
@@ -304,8 +305,8 @@ section .main .main_text .btn:hover::before{
 .about .about_btn{
     border: 2px solid #576CBC;
     position: relative;
-    left: 55%;
-    bottom: 50px;
+    left: 50%;
+    bottom: 10px;
     width: 150px;
     cursor: pointer;
     padding: 12px 25px;
@@ -691,7 +692,7 @@ section .main .main_text .btn:hover::before{
 }
 
 .order .order_main .order_image img{
-    width: 500px;
+    width: 300px;
 }
 
 .order .order_main form{
@@ -767,7 +768,7 @@ section .main .main_text .btn:hover::before{
 footer{
     width: 100%;
     padding: 30px 0 0 20px;
-    background: #eeeeee;
+    background: #4591aa;
 }
 
 footer .footer_main{
