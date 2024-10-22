@@ -23,15 +23,15 @@
 
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="about.ejs">About Us</a></li>
+            <li><a href="/about">About Us</a></li>
             <li>
                 <a>Components <i class="fa-sharp fa-solid fa-caret-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="pcparts.ejs">PC Parts</a></li>
-                    <li><a href="laptop-parts.ejs">Laptop Parts</a></li>
+                    <li><a href="/pcparts">PC Parts</a></li>
+                    <li><a href="/laptopParts">Laptop Parts</a></li>
                 </ul>
             </li>
-            <li><a href="gallery.ejs" class="action" >Gallery</a></li>
+            <li><a href="/gallery" class="action" >Gallery</a></li>
         </ul>
 
         <div class="box">
@@ -71,7 +71,7 @@
                 <p>
                     Chicken Tinola is a Filipino soup dish. It involves cooking chicken pieces in ginger broth. It is a popular cold weather dish.
                 </p>
-                <a href="order.ejs" class="gallery_btn">Order Now</a>
+                <a href="/order" class="gallery_btn">Order Now</a>
             </div>
 
             <div class="gallery_image">
@@ -81,7 +81,7 @@
                 <p>
                     Chicken Adobo is a type of Filipino chicken stew. Chicken pieces are marinated in soy sauce and spices, pan-fried, and stewed until tender. The dish gained popularity because of its delicious taste and ease in preparation.
                 </p>
-                <a href="order.ejs" class="gallery_btn">Order Now</a>
+                <a href="/order" class="gallery_btn">Order Now</a>
             </div>
 
             <div class="gallery_image">
@@ -91,7 +91,7 @@
                 <p>
                     Leche Flan is a dessert made-up of eggs and milk with a soft caramel on top. It resembles crème caramel and caramel custard. This delicious dessert is known throughout the world.
                 </p>
-                <a href="order.ejs" class="gallery_btn">Order Now</a>
+                <a href="/order" class="gallery_btn">Order Now</a>
             </div>
 
             <div class="gallery_image">
@@ -101,7 +101,7 @@
                 <p>
                     Taho is a beloved snack in the Philippines, almost like a drinkable custard made with warm silken tofu, sago pearls, and arnibal, a simple brown sugar syrup. Sago pearls are similar to tapioca pearls, and like the boba you find in bubble tea. 
                 </p>
-                <a href="order.ejs" class="gallery_btn">Order Now</a>
+                <a href="/order" class="gallery_btn">Order Now</a>
             </div>
 
             <div class="gallery_image">
@@ -111,13 +111,17 @@
                 <p>
                     Halo-halo is an iconic Filipino shaved ice dessert." Each creamy and refreshing bite is packed with flavors and textures due to a myriad of add-ins, like crunchy toasted pinipig (pounded young rice), soft sweetened Saba bananas (a native banana cultivar), and chewy nata de coco (coconut jelly). 
                 </p>
-                <a href="order.ejs" class="gallery_btn">Order Now</a>
+                <a href="/order" class="gallery_btn">Order Now</a>
             </div>
 
             <div class="gallery_image">
                 <img src="images/Kwek Kwek (Filipino Street Food).webp">
             
-
+                <h3> Halo-halo</h3>
+                <p>
+                    Halo-halo is an iconic Filipino shaved ice dessert." Each creamy and refreshing bite is packed with flavors and textures due to a myriad of add-ins, like crunchy toasted pinipig (pounded young rice), soft sweetened Saba bananas (a native banana cultivar), and chewy nata de coco (coconut jelly). 
+                </p>
+                <a href="/order" class="gallery_btn">Order Now</a>
         </div>
 
     </div>
@@ -140,9 +144,8 @@
             <div class="footer_tag">
                 <h2>Quick Link</h2>
                 <a href="/">Home</a>
-                <a href="about.ejs">About</a>
-                <a href="menu.ejs">Menu</a>
-                <a href="gallery.ejs">Gallery</a>
+                <a href="/about">About</a>
+                <a href="/gallery">Gallery</a>
             </div>
 
             <div class="footer_tag">
@@ -170,7 +173,7 @@
 
         </div>
 
-        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> WeIT: Online IT Essentials Shop</span></p>
+        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> <%= footer %></span></p>
 
     </footer>
     

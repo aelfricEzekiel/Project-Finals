@@ -9,7 +9,7 @@
 <body>
     <div class="wrapper">
         <div class="logo">
-            <img src="logo.png" alt="">
+            <img src="images/HOME.png" alt="">
         </div>
         <br>
         <br>
@@ -17,26 +17,26 @@
             Sign Up
         </div>
         <br>
-        <form class="p-3 mt-3">
+        <form class="p-3 mt-3" action="/signup/register">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="userName" id="userName" placeholder="Username" required>
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password" required>
+                <input type="text" name="fullName" id="userName" placeholder="Full Name" required>
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
                 <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password" required>
             </div>
             <button class="btn mt-3">Sign Up</button>
         </form>
         <br>
         <div class="text-center fs-6">
             <center>
-                <a href="login.ejs">Log In</a> |
-                <a href="signup.ejs">Sign up</a> 
+                <a href="/login">Log In</a> |
+                <a href="/signup">Sign up</a> 
             </center>
         </div>
     </div>

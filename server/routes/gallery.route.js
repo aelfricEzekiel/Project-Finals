@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/gallery.ejs', (req, res) => {
+router.get('/', (req, res) => {
     res.render('gallery', {
-        title: "Gallery"
+        title: "Gallery",
+        footer: "WeIT: Online IT Essentials Shop"
     })
 })
 

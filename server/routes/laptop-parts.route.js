@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/laptop-parts.ejs', (req, res) => {
+router.get('/', (req, res) => {
     res.render('laptop-parts', {
-        title: "Laptop Parts"
+        title: "Laptop Parts",
+        footer: "WeIT: Online IT Essentials Shop"
     })
 })
 

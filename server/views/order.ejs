@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-998cd8676dafbcb2398a1b5e76a59f4df8369fd81a8e9683eb9d574c9f7f4943' 'sha256-83c52a394463edf586dc264b43faae4c43a0bde79daccf96c7d84a6077b2aabd' 'sha256-f7ef4e8109edbfc8189c3a536c418e46b7e65ae00a8d413c158dddd7b47e6ca8'">
     <title>
         <%= title%>
     </title>
@@ -26,16 +25,16 @@
         </div>
 
         <ul>
-            <li><a href="index.ejs">Home</a></li>
-            <li><a href="about.ejs" class="action">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about" class="action">About Us</a></li>
             <li>
                 <a>Components <i class="fa-sharp fa-solid fa-caret-down"></i></a>
                 <ul class="dropdown">
-                    <li><a href="pcparts.ejs">PC Parts</a></li>
-                    <li><a href="laptop-parts.ejs">Laptop parts</a></li>
+                    <li><a href="/pcparts">PC Parts</a></li>
+                    <li><a href="/laptopParts">Laptop parts</a></li>
                 </ul>
             </li>
-            <li><a href="gallery.ejs">Gallery</a></li>
+            <li><a href="/gallery">Gallery</a></li>
         </ul>
 
         <div class="box">
@@ -61,7 +60,7 @@
                 <img src="images/oder.png">
             </div>
 
-            <form action="/orderLaptops" method="post">
+            <form action="/order/orderLaptops" method="post">
 
                 <div class="input">
                     <p>Name</p>
@@ -94,17 +93,6 @@
                 </div>
 
                 <input type="submit" value="Order Now" class="order_btn">
-                <!-- <a class="order_btn" onclick="openPopup()" id="order-btn">Order Now</a> -->
-
-                <div class="popup" id="popup">
-                    <img src="images/tick.png">
-                    <h2>Thank You!</h2>
-                    <p>Your order has been successfully ordered</p>
-                    <a href="menu.ejs">
-                        <button type="button" onclick="closePopup()" id="confirm-btn">OK</button>
-                    </a>
-                </div>
-
             </form>
 
         </div>
@@ -128,10 +116,9 @@
 
             <div class="footer_tag">
                 <h2>Quick Link</h2>
-                <a href="index.ejs">Home</a>
-                <a href="about.ejs">About</a>
-                <a href="menu.ejs">Menu</a>
-                <a href="gallery.ejs">Gallery</a>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/gallery">Gallery</a>
             </div>
 
             <div class="footer_tag">
@@ -159,23 +146,9 @@
 
         </div>
 
-        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> WeIT: Online IT Essentials Shop</span></p>
+        <p class="end">Design by<span><i class="fa-solid fa-face-grin"></i> <%= footer %></span></p>
 
     </footer>
-
-
-    <script nonce="abc123">
-        let popup = document.getElementById("popup");
-
-        function openPopup() {
-            popup.classList.add("open-popup");
-        }
-
-        function closePopup() {
-            popup.classList.remove("open-popup");
-        }
-    </script>
-
 </body>
 
 </html>

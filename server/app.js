@@ -2,87 +2,31 @@ const app = require('./express/express');
 const conn = require('./mysql/conn');
 const index = require('./routes/index.route');
 const login = require('./routes/login.route');
+const about = require('./routes/about.route');
+const pcparts = require('./routes/pcparts.route');  
+const order = require('./routes/order.route');
+const laptopParts = require('./routes/laptop-parts.route');
+const gallery = require('./routes/gallery.route');
+const signup = require('./routes/signup.route');
+
+app.use('/signup', signup);
 
 // route for landing page
 app.use('/', index);
 
-// Landing page
-/*app.get('/', (req, res) => {
-    res.render('index', {
-        title: "WeIT: Online IT Essentials Shop"
-    })
-});*/
-
-/*app.post('/ordersHomePage', (req, res) => {
-    const id = 0;
-    const name = req.body.name;
-    const email = req.body.email;
-    const contactNo = req.body.contactNo;
-    const count = req.body.count;
-    const orders = req.body.orders;
-    const address = req.body.address;
-
-    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address}")`;
-
-    conn.query(insertQuery, (err, result) => {
-        if(err) throw err;
-        console.log("Orders Succesful");
-    })
-    res.redirect('/');
-})*/
-
 // route for login
-app.use('/logine', login);
+app.use('/login', login);
 
 // redirects to the about page
-app.get('/about.ejs', (req, res) => {
-    res.render('about', {
-        title: "About",
-        about: "WeIT: Online IT Essentials Shop"
-    })
-});
+app.use('/about', about);
 
-app.get('/order.ejs', (req, res) => {
-    res.render('order', {
-        title: "Order"
-    })
-});
+app.use('/pcparts', pcparts);
 
-app.post('/orderLaptops', (req, res) => {
-    const id = 0;
-    const name = req.body.name;
-    const email = req.body.email;
-    const contactNo = req.body.contactNo;
-    const count = req.body.count;
-    const orders = req.body.orders;
-    const address = req.body.address;
+app.use('/order', order);
 
-    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address}")`;
+app.use('/laptopParts', laptopParts);
 
-    conn.query(insertQuery, (err, result) => {
-        if(err) throw err;
-
-        console.log("Orders Succssful!");
-    })
-})
-app.get('/pcparts.ejs', (req, res) => {
-    res.render('pcparts', {
-        title: "PC Components"
-    })
-});
-
-app.get('/laptop-parts.ejs', (req, res) => {
-    res.render('laptop-parts', {
-        title: "Laptop Parts",
-        footer: "WeIT: Online IT Essentials Shops"
-    })
-});
-
-app.get('/gallery.ejs', (req, res) => {
-    res.render('gallery', {
-        title: "Gallery"
-    })
-});
+app.use('/gallery', gallery);
 
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Server is running at http://${app.get('host')}:${app.get('port')}`);
