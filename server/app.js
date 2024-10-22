@@ -1,5 +1,4 @@
 const app = require('./express/express');
-const conn = require('./mysql/conn');
 const index = require('./routes/index.route');
 const login = require('./routes/login.route');
 const about = require('./routes/about.route');
@@ -29,5 +28,5 @@ app.use('/laptopParts', laptopParts);
 app.use('/gallery', gallery);
 
 app.listen(app.get('port'), app.get('host'), () => {
-    console.log(`Server is running at http://${app.get('host')}:${app.get('port')}`);
+    console.log(`Server is running at http://${app.get('host')}:${app.get('port')}/${app.use('/login', login)}`);
 })
