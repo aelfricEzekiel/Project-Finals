@@ -2,10 +2,25 @@ const express = require('express');
 const conn = require('../mysql/conn');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('order', {
-        title: "Order",
-        footer: "WeIT: Online IT Essentials Shop"
+const isAuth = (req, res, next) => {
+    if(req.session.user){
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+router.get('/', isAuth, (req, res) => {
+    const ordersQuery = `SELECT * FROM orders`;
+
+    conn.query(ordersQuery, (err, data) => {
+        if (err) throw err;
+
+        res.render('order', {
+            title: "Order",
+            footer: "WeIT: An Online IT Essentials Shop",
+            getOrders: data
+        })
     })
 })
 

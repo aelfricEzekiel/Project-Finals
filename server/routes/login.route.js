@@ -1,8 +1,8 @@
 const express = require('express');
 const conn = require('../mysql/conn');
 const bcrypt = require('bcrypt');
-const session = require('express-session');
 const router = express.Router();
+// const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
     res.render('login', {
@@ -40,18 +40,25 @@ router.post('/index', (req, res) => {
             `)
         }
 
-        req.session.user = {
-            id: user.id,
-            email: user.email,
-            password: user.password
-        }
+    
+        
+        if (email && password) {
 
-        return res.status(200).send(`
-            <script>
-                alert("Logged in Successfully");
-                window.location.href="/";
-            </script>
-        `);
+            // const token = jwt.sign(genToken, process.env.JWT_SECRET || 'secret', {expiresIn: '1hr'});
+
+            req.session.user = {
+                id: result.id,
+                email: result.email,
+            }
+            
+            return res.status(200).send(`
+                <script>
+                    alert("Logged in Successfully");
+                    window.location.href="/";
+                </script>
+            `);
+
+        }
     })
 })
 

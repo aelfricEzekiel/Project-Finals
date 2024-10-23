@@ -149,7 +149,7 @@ section .main{
 
 section .main .main_text h1{
     color: #000;
-    font-size: 75px;
+    font-size: 55px;
     position: relative;
     top: -10px;
     left: 5%;
@@ -158,19 +158,21 @@ section .main .main_text h1{
 section .main .main_text h1 span{
     color: #146C94;
     font-family: mv boli;
-    line-height: 22px;
+    line-height: 12px;
 }
 
 section .main .main_image img{
-    width: 450px;
+    width: 500px;
+    height: 500px;
     position: relative;
-    left: 0;
-    margin-top: 50px;
+    left: 2rem;
+    margin-bottom: 0px;
 }
 
 section .main .main_text p{
     color: #000;
     width: 650px;
+    font-size: 20px;
     position: relative;
     top: 20px;
     left: 5%;

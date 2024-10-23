@@ -7,6 +7,7 @@ const order = require('./routes/order.route');
 const laptopParts = require('./routes/laptop-parts.route');
 const gallery = require('./routes/gallery.route');
 const signup = require('./routes/signup.route');
+const logout = require('./routes/logout.route');
 
 app.use('/signup', signup);
 
@@ -27,6 +28,8 @@ app.use('/laptopParts', laptopParts);
 
 app.use('/gallery', gallery);
 
+app.use('/logout', logout);
+
 app.listen(app.get('port'), app.get('host'), () => {
-    console.log(`Server is running at http://${app.get('host')}:${app.get('port')}/${app.use('/login', login)}`);
+    console.log(`Server is running at http://${app.get('host')}:${app.get('port')}`);
 })
