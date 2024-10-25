@@ -8,6 +8,10 @@ const laptopParts = require('./routes/laptop-parts.route');
 const gallery = require('./routes/gallery.route');
 const signup = require('./routes/signup.route');
 const logout = require('./routes/logout.route');
+const admin = require('./routes/admin.route');
+const conn = require('./mysql/conn');
+
+app.use('/admin', admin);
 
 app.use('/signup', signup);
 

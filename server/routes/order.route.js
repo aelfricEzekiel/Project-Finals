@@ -11,35 +11,71 @@ const isAuth = (req, res, next) => {
 }
 
 router.get('/', isAuth, (req, res) => {
-    const ordersQuery = `SELECT * FROM orders`;
+    const userCheckQuery = "SELECT * FROM signup";
+    const {name, price} = req.query;
 
-    conn.query(ordersQuery, (err, data) => {
+    conn.query(userCheckQuery, (err, data) => {
         if (err) throw err;
 
         res.render('order', {
             title: "Order",
             footer: "WeIT: An Online IT Essentials Shop",
-            getOrders: data
+            product: {
+                name,
+                price
+            },
+            getData: data,
         })
     })
 })
 
-router.post('/orderLaptops', (req, res) => {
-    const id = 0;
+router.post('/orderLaptops', isAuth, (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const contactNo = req.body.contactNo;
-    const count = req.body.count;
+    const quantity = parseInt(req.body.count);
     const orders = req.body.orders;
-    const address = req.body.address;
+    const price = parseFloat(req.body.price);
+    let total = 0;
+    const insertQuery = `INSERT INTO orders (name, email, contactNo, count, orders, price) VALUES (?, ?, ?, ?, ?, ?)`;
+    
+    if(!name || !email || !contactNo || !quantity || !orders || !price){
+        res.send(`
+            <script>
+                alert("Input fields are required");
+                window.location.href="/order";
+            </script>
+        `)
+    }
 
-    const insertQuery = `INSERT INTO orders VALUES ("${id}", "${name}", "${email}", "${contactNo}", "${count}", "${orders}", "${address}")`;
+    if(quantity >= 1){
+        total = price * quantity;
+    } else {
+        res.send(`
+            <script>
+                alert("Quantity is less than 1");
+                window.location.href="/pcparts";
+            </script>
+        `)
+    }
 
-    conn.query(insertQuery, (err, result) => {
-        if(err) throw err;
 
-        console.log("Orders Succssful!");
-        res.redirect('/order');
+    conn.query(insertQuery, [name, email, contactNo, quantity, orders, total], (err, result) => {
+        if(err) {
+            res.send(`
+                <script>
+                    alert("Order Unsuccessful");
+                    window.location.href="/";
+                </script>
+            `)
+        }
+
+        res.send(`
+            <script>
+                alert("Order Successful");
+                window.location.href="/";
+            </script>
+        `)
     })
 })
 

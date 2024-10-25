@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="login-signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="wrapper">
@@ -19,16 +20,16 @@
         <br>
         <form class="p-3 mt-3" action="/signup/register" method="POST">
             <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
+                <!-- <span class="far fa-user"></span> -->
                 <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
             </div>
             <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="email" name="email" id="email" placeholder="Email" required>
+                <!-- <span class="fas fa-key"></span> -->
+                <input type="email" name="email" id="email2" placeholder="Email" required>
             </div>
             <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password" required>
+                <!-- <span class="fas fa-key"></span> -->
+                <input type="password" name="password" id="pwd2" placeholder="Password" required><i class="fa-solid fa-eye-slash eye-slash"></i>
             </div>
             <button class="btn mt-3">Sign Up</button>
         </form>
@@ -41,5 +42,6 @@
         </div>
     </div>
     
+    <script src="js/index.js"></script>
 </body>
 </html>

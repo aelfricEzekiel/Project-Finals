@@ -39,25 +39,31 @@ router.post('/index', (req, res) => {
                 </script>    
             `)
         }
-
-    
         
-        if (email && password) {
-
+        if (email === "admin@gmail.com" && password === "admin") {
+            req.session.user = {
+                id: result.id,
+                email: result.email
+            }
+            return res.status(200).send(`
+                <script>
+                    alert("Admin Logged in Successfully");
+                    window.location.href="/admin";
+                </script>
+            `);
+        } else if (email && password){
             // const token = jwt.sign(genToken, process.env.JWT_SECRET || 'secret', {expiresIn: '1hr'});
-
             req.session.user = {
                 id: result.id,
                 email: result.email,
             }
-            
+
             return res.status(200).send(`
                 <script>
                     alert("Logged in Successfully");
                     window.location.href="/";
                 </script>
             `);
-
         }
     })
 })

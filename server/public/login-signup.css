@@ -100,3 +100,33 @@ body {
         padding: 40px 15px 15px 15px;
     }
 }
+.form-field #email {
+    padding: 1rem 1rem;
+}
+.fa-eye-slash {
+    position: absolute;
+    right: 39.6rem;
+    bottom: 22.6rem;
+}
+.fa-eye {
+    position: absolute;
+    right: 39.6rem;
+    bottom: 22.6rem;
+}
+.form-field #pwd {
+    padding: 1rem 1rem;
+}
+.form-field #fullName {
+    padding: 1rem 1rem;
+}
+.form-field #email2 {
+    padding: 1rem 1rem;
+}
+.form-field #pwd2 {
+    padding: 1rem 1rem;
+}
+.eye-slash {
+    position: absolute;
+    right: 39.6rem;
+    bottom: 17.90rem;
+}

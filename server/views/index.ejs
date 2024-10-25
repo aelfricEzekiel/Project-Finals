@@ -10,9 +10,7 @@
     </title>
     <link rel="stylesheet" href="style.css">
     <link rel="short icon" href="images/Short cut.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -39,8 +37,6 @@
                     </ul>
                 </li>
                 <li><a href="/gallery">Gallery</a></li>
-                <!-- <li><a href="/login">Login</a></li> -->
-                <!-- <li><a href="/signup">Sign Up</a></li> -->
                 <li><a href="/logout">Logout</a></li>
             </ul>
             
@@ -353,63 +349,21 @@
         <h1>Our<span>Gallery</span></h1>
 
         <div class="gallery_image_box">
-            <div class="gallery_image">
-                <img src="images/ch/mouse.jpg">
-
-                <h3>Zippy Wireless Mouse</h3>
-                <p> Php 180.00
-                </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
-            <div class="gallery_image">
-                <img src="images/lp/wireless.jpg">
-
-                <h3>Whiskers Wireless keyboard</h3>
-                <p>
-                    Php 220.00
-                </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
-            <div class="gallery_image">
-                <img src="images/lp/mech.webp">
-
-                <h3>Dash Wireless Keyboard </h3>
-                <p>
-                    Php 250.00 </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
-            <div class="gallery_image">
-                <img src="images/lp/case.webp">
-
-                <h3>Pebble High-Spec System Unit</h3>
-                <p>
-                    Php 650.00 </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
-            <div class="gallery_image">
-                <img src="images/lp/pad.jpg">
-
-                <h3>Drawing Tablet</h3>
-                <p>
-                    Php 1200.00
-                </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
-            <div class="gallery_image">
-                <img src="images/lp/screen.jpg">
-
-                <h3>Pip Monitor</h3>
-                <p>
-                    Php 1500.00
-                </p>
-                <a href="/order" class="gallery_btn">Order Now</a>
-            </div>
-
+            <%
+                product.forEach((product) => {
+                    %>
+                        <div class="gallery_image">
+                            <img src="<%= product.images %>">
+            
+                            <h3><%= product.name %></h3>
+                            <p> 
+                                ₱<%= product.price %>
+                            </p>
+                            <a href="#order?id=<%= product.id %>" class="gallery_btn">Order Now</a>
+                        </div>
+                    <%
+                })
+            %>
         </div>
 
     </div>
@@ -417,7 +371,7 @@
 
     <!--Order-->
 
-    <div class="order" id="Order">
+    <div class="order" id="order">
         <h1><span>Order</span>Now</h1>
 
         <div class="order_main">
@@ -427,7 +381,7 @@
             </div>
 
             <form action="/ordersHomePage" method="post">
-
+                
                 <div class="input">
                     <p>Name</p>
                     <input type="text" placeholder="Enter Name" name="name">
@@ -445,7 +399,7 @@
 
                 <div class="input">
                     <p>Quantity</p>
-                    <input type="text" placeholder="Quantity" name="count">
+                    <input type="text" placeholder="Enter Quantity" name="count">
                 </div>
 
                 <div class="input">
@@ -458,10 +412,8 @@
                     <input type="text" placeholder="Enter Price" name="price">
                 </div>
 
-                <!-- <a href="order.ejs" class="order_btn">Order Now</a> -->
                 <input type="submit" value="Order Now" class="order_btn">
             </form>
-
         </div>
 
     </div>
@@ -488,6 +440,8 @@
                 <h2>Quick Link</h2>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
+                <a href="/pcparts">PC Parts</a>
+                <a href="/laptopParts">Laptop Parts</a>
                 <a href="/gallery">Gallery</a>
             </div>
 

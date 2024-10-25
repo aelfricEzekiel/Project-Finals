@@ -35,6 +35,7 @@
                 </ul>
             </li>
             <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/logout">Logout</a></li>
         </ul>
 
         <div class="box">
@@ -60,46 +61,38 @@
                 <img src="images/oder.png">
             </div>
 
-            <% if(getOrders.length > 0) {
-                getOrders.forEach((orders) => { 
-                    %>
-                        <form action="/order/orderLaptops" method="post">
-            
-                            <div class="input">
-                                <p>Name</p>
-                                <input type="text" placeholder="Enter Name" name="name" value="<%= orders.name %>">
-                            </div>
-            
-                            <div class="input">
-                                <p>Email</p>
-                                <input type="email" placeholder="Enter email" name="email" value="<%= orders.email%>">
-                            </div>
-            
-                            <div class="input">
-                                <p>Contact Number</p>
-                                <input type="text" placeholder="Enter Contact number" name="contactNo" value="<%= orders.contactNo %>">
-                            </div>
-            
-                            <div class="input">
-                                <p>How Much</p>
-                                <input type="text" placeholder="How many your orders?" name="count">
-                            </div>
-            
-                            <div class="input">
-                                <p>Enter Order</p>
-                                <input type="text" placeholder="Enter PC Components" name="orders">
-                            </div>
-            
-                            <div class="input">
-                                <p>Price</p>
-                                <input type="text" placeholder="Enter Price" name="price">
-                            </div>
-            
-                            <input type="submit" value="Order Now" class="order_btn">
-                        </form>
-                    <%
-                })
-            }%>
+            <form action="/order/orderLaptops" method="post">
+                <div class="input">
+                    <p>Name</p>
+                    <input type="text" placeholder="Enter Name" name="name">
+                </div>
+                <div class="input">
+                    <p>Email</p>
+                    <input type="email" placeholder="Enter Email" name="email">
+                </div>
+
+                <div class="input">
+                    <p>Contact Number</p>
+                    <input type="text" placeholder="Enter Contact number" name="contactNo">
+                </div>
+
+                <div class="input">
+                    <p>Quantity</p>
+                    <input type="text" placeholder="Enter Quantity" name="count">
+                </div>
+                
+                <div class="input">
+                    <p>Enter Order</p>
+                    <input type="text" placeholder="Enter PC Components" name="orders" value="<%= product.name %>" readonly>
+                </div>
+
+                <div class="input">
+                    <p>Price</p>
+                    <input type="text" placeholder="Enter Price" name="price" value="<%= product.price %>" readonly>
+                </div>
+
+                <input type="submit" value="Order Now" class="order_btn">
+            </form>
         </div>
 
     </div>
