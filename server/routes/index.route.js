@@ -62,29 +62,38 @@ route.get('/', isAuth, (req, res) => {
     });
 });
 
-route.post('/ordersHomePage', (req, res) => {
+route.post('/orderHomePage', isAuth, (req, res) => {    
     const name = req.body.name;
     const email = req.body.email;
     const contactNo = req.body.contactNo;
     const quantity = parseInt(req.body.count);
-    const orders = req.body.orders;
+    const orders = String(req.body.orders);
     const price = parseFloat(req.body.price);
 
     let total = 0
     
     if(!name || !email || !contactNo || !quantity || !orders || !price) {
-        res.send(`
+        return res.send(`
             <script>
                 alert("Input fields are required!");
                 window.location.href="/";
             </script>    
         `)
+    } 
+    
+    if(!contactNo.length === 11){
+        return res.send(`
+            <script> 
+                alert("Contact Number should 11 digits");
+                window.location.href="/";
+            </script>
+        `)
     }
 
-    if(quantity >= 1 ){
+    if(quantity >= 1 ) {
         total = price * quantity;
     } else {
-        res.send(`
+        return res.send(`
             <script>
                 alert("Quantity is less than 1");
                 window.location.href="/";
@@ -96,7 +105,7 @@ route.post('/ordersHomePage', (req, res) => {
 
     conn.query(insertQuery, [name, email, contactNo, quantity, orders, total], (err, result) => {
         if(err) {
-            res.send(`
+            return res.send(`
                 <script>
                     alert("Order Unsuccesful");
                     window.location.href="/";
@@ -104,7 +113,7 @@ route.post('/ordersHomePage', (req, res) => {
             `)
         };
         
-        res.send(`
+        return res.send(`
             <script>
                 alert("Order Successful!");
                 window.location.href="/";
@@ -113,4 +122,41 @@ route.post('/ordersHomePage', (req, res) => {
     })
 })
 
+route.post('/feedbackForm', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const feedbackType = req.body.feedbackType;
+    const satisfactionRating = req.body.satisfactionRating;
+    const recommendedRating = req.body.recommendRating;
+    const comments = req.body.comments;
+    const suggestions = req.body.suggestions;
+    const additionalComments = req.body.additionalComments;
+
+    if(!name || !email || !feedbackType || !satisfactionRating || !recommendedRating || !comments || !suggestions || !additionalComments){
+        return res.status(200).send(`
+            <script>
+                alert("Input fields are required!");
+                window.location.href="/";
+            </script>
+        `)
+    }
+    const feedbackQuery = "INSERT INTO feedback (name, email, feedbackType, satisfactionRating, reccomendedRating, comments, suggestions, additionalComments) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    conn.query(feedbackQuery, [name, email, feedbackType, satisfactionRating, recommendedRating, comments, suggestions, additionalComments], (err) => {
+        if(err) {
+            return res.send(`
+                <script>
+                    alert("Feedback Unsuccesful");
+                    window.location.href="/";
+                </script>
+            `)
+        }
+        return res.send(`
+            <script>
+                alert("Feedback Succesful");
+                window.location.href="/";
+            </script>
+        `)
+    })
+})
 module.exports = route;

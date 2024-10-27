@@ -17,8 +17,8 @@ const products = [
     {id: 4, name: "Lyph Mouse", price: 820.00, images: "images/ch/m2.png", description: "Lyph Gaming Mouse"},
     {id: 5, name: "SSD 128GB", price: 1160.00, images: "images/ch/ssd.png", description: "Solid State Drive 128GB"},
     {id: 6, name: "Hard Disk Drive (HDD) 1TB", price: 3000.00, images: "images/ch/hdd.png", description: "Hard Disk Drive 1TB"},
-    {id: 7, name: "Graphics Processing Unit (GPU) RTX 3080", price: 5000.00, images: "images/ch/rtx.png", description: "NVIDIA Geforce RTX 3080"},
-    {id: 8, name: "Graphics Processing Unit (GPU) RTX 4090", price: 20000.00, images: "images/ch/rtx2.png", description: "NVIDIA Geforce RTX 4090"}
+    {id: 7, name: "Graphics Processing Unit (GPU) RTX 3080", price: 32000.00, images: "images/ch/rtx.png", description: "NVIDIA Geforce RTX 3080"},
+    {id: 8, name: "Graphics Processing Unit (GPU) RTX 4090", price: 49000.00, images: "images/ch/rtx2.png", description: "NVIDIA Geforce RTX 4090"}
 ];
 
 router.get('/', isAuth, (req, res) => {

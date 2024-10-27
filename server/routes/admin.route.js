@@ -14,6 +14,7 @@ router.get('/', isAuth, (req, res) => {
     const orders = "SELECT * FROM orders";
     const totalRegisteredAccount = "SELECT COUNT(*) AS count FROM signup";
     const totalProductsOrdered = "SELECT COUNT(*) AS count FROM orders"
+    const totalFeedbacks = "SELECT COUNT(*) AS count FROM feedback";
 
     conn.query(orders, (err, ordersData) => {
         if (err) throw err;
@@ -24,52 +25,23 @@ router.get('/', isAuth, (req, res) => {
             conn.query(totalProductsOrdered, (err, productsData) => {
                 if (err) throw err;
 
-                const count = countData[0].count;
-                const productCount = productsData[0].count;
+                conn.query(totalFeedbacks, (err, feedbackData) => {
+                    if (err) throw err;
 
-                res.render('admin', {
-                    orders: ordersData,
-                    accounts: count,
-                    title: "Admin",
-                    products: productCount
-                });
+                    const count = countData[0].count;
+                    const productCount = productsData[0].count;
+                    const feedbackCount = feedbackData[0].count;
+
+                    res.render('admin', {
+                        orders: ordersData,
+                        accounts: count,
+                        title: "Admin",
+                        products: productCount,
+                        feedback: feedbackCount
+                    });
+                })
             })
         });
     });
 })
-
-router.post('/delete/:id', (req, res) => {    
-    const del_id = parseInt(req.params.id);
-
-    if (isNaN(del_id)) {
-        return res.status(400).send(`
-            <script>
-                alert("Invalid ID");
-                window.location.href="/admin";
-            </script>
-        `);
-    }
-
-    const deleteProduct = "DELETE FROM orders WHERE id = ?";
-
-    conn.query(deleteProduct, [del_id], (err, result) => {
-        if (err) throw err;
-
-        if(result.affectedRows === 0){
-            res.send(`
-                <script>
-                    alert("Product not found");
-                    window.location.href="/admin";    
-            `)
-        }
-
-        return res.status(200).send(`
-            <script>
-                alert("Product deleted");
-                window.location.href="/admin";
-            </script>
-        `);
-    });
-});
-
 module.exports = router;

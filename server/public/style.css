@@ -763,6 +763,92 @@ section .main .main_text .btn:hover::before{
     bottom: 0;
 }
 
+/*Feedback*/
+.feedback {
+    width: 100%;
+    padding: 2rem;
+    background-color: #ADD8E6;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feedback h1 span {
+    align-content: center;
+    margin-right: 20px;
+    color: #333;
+    position: relative;
+}
+.feedback h1 span::after {
+    text-align: center;
+    color: #333;
+}
+
+.feedback_main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.feedback_image img {
+    max-width:50%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 5rem;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.input {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.order_btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.order_btn:hover {
+    background-color: #0056b3;
+}
 
 
 /*Footer*/
@@ -860,3 +946,5 @@ footer .end span{
         transform: scale(1.1);
     }
 }
+
+
