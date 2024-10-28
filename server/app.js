@@ -134,6 +134,17 @@ app.get('/updateProduct/:id', isAuth, (req, res) => {
         `);
     });
 });
+
+app.get('/productTracking', isAuth, (req, res) => {
+    const track = "SELECT count, orders, price FROM orders";
+
+    conn.query(track, (err, trackData) => {
+        if(err) throw err;
+
+        res.json(trackData);
+    })
+})
+
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Server is running at http://${app.get('host')}:${app.get('port')}`);
 });
